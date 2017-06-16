@@ -1,7 +1,7 @@
 package memstore
 
 import (
-	"github.com/aerogo/aero"
+	"github.com/aerogo/session"
 	"golang.org/x/sync/syncmap"
 )
 
@@ -11,23 +11,23 @@ type MemoryStore struct {
 	sessions syncmap.Map
 }
 
-// NewMemoryStore creates a session memory store.
-func NewMemoryStore() *MemoryStore {
+// New creates a session memory store.
+func New() *MemoryStore {
 	return &MemoryStore{}
 }
 
 // Get a session by its ID.
-func (store *MemoryStore) Get(id string) *aero.Session {
-	session, ok := store.sessions.Load(id)
+func (store *MemoryStore) Get(id string) *session.Session {
+	value, ok := store.sessions.Load(id)
 
 	if !ok {
 		return nil
 	}
 
-	return session.(*aero.Session)
+	return value.(*session.Session)
 }
 
 // Set saves a session so it can be retrieved by its ID.
-func (store *MemoryStore) Set(id string, session *aero.Session) {
+func (store *MemoryStore) Set(id string, session *session.Session) {
 	store.sessions.Store(id, session)
 }

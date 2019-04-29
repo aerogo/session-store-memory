@@ -4,5 +4,5 @@ go 1.12
 
 require (
 	github.com/aerogo/session v0.1.1
-	golang.org/x/sync v0.0.0-20190412183630-56d357773e84
+	golang.org/x/sync v0.0.0-20190423024810-112230192c58
 )

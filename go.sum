@@ -1,5 +1,5 @@
-github.com/aerogo/session v0.1.1 h1:NBy3+fPwyHAzollumyqptLIyLjFyHuIwYDcQOll7UVE=
-github.com/aerogo/session v0.1.1/go.mod h1:A4S5dvAhpm+DRdQbno5Rn4Jvj0UVGJmOUKQXataNIDg=
+github.com/aerogo/session v0.1.2 h1:f0X3YJQJcFhtmw47U60jdSsH18/T51SkhkhAuXwnYI8=
+github.com/aerogo/session v0.1.2/go.mod h1:A4S5dvAhpm+DRdQbno5Rn4Jvj0UVGJmOUKQXataNIDg=
 github.com/google/uuid v1.1.1 h1:Gkbcsh/GbpXz7lPftLA3P6TYMwjCLYm83jiFQZF/3gY=
 github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 golang.org/x/sync v0.0.0-20190423024810-112230192c58 h1:8gQV6CLnAEikrhgkHFbMAEhagSSnXWGV915qUMm9mrU=

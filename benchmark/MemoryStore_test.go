@@ -4,20 +4,34 @@ import (
 	"testing"
 
 	"github.com/aerogo/session"
-	"github.com/aerogo/session-store-memory"
+	memstore "github.com/aerogo/session-store-memory"
 )
 
-func BenchmarkMemoryStore(t *testing.B) {
+func BenchmarkMemoryStore(b *testing.B) {
 	store := memstore.New()
 
-	t.ReportAllocs()
-	t.ResetTimer()
+	b.ReportAllocs()
+	b.ResetTimer()
 
-	t.RunParallel(func(pb *testing.PB) {
+	b.RunParallel(func(pb *testing.PB) {
 		for pb.Next() {
-			store.Get("sid")
-			store.Set("sid", session.New("sid", nil))
-			store.Get("sid")
+			_, err := store.Get("sid")
+
+			if err != nil {
+				b.Fail()
+			}
+
+			err = store.Set("sid", session.New("sid", nil))
+
+			if err != nil {
+				b.Fail()
+			}
+
+			_, err = store.Get("sid")
+
+			if err != nil {
+				b.Fail()
+			}
 		}
 	})
 }

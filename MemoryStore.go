@@ -2,15 +2,15 @@ package memstore
 
 import (
 	"errors"
+	"sync"
 
 	"github.com/aerogo/session"
-	"golang.org/x/sync/syncmap"
 )
 
 // MemoryStore is the default session store.
 // You should use it for prototyping, not for production.
 type MemoryStore struct {
-	sessions syncmap.Map
+	sessions sync.Map
 }
 
 // New creates a session memory store.
@@ -33,4 +33,9 @@ func (store *MemoryStore) Get(id string) (*session.Session, error) {
 func (store *MemoryStore) Set(id string, session *session.Session) error {
 	store.sessions.Store(id, session)
 	return nil
+}
+
+// Delete deletes the session with the given ID.
+func (store *MemoryStore) Delete(id string) {
+	store.sessions.Delete(id)
 }
